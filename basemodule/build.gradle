@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.yikwing'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    //base
+    api AsLibs.gson
+    api AsLibs.glide
+    kapt AsLibs.glideCompiler
+    api AsLibs.BaseRecyclerView
+    api AsLibs.loading
+    api AsLibs.smartrefresh
+    api AsLibs.logger
+    //rx
+    api AsLibs.rxjava
+    api AsLibs.rxandroid
+    api AsLibs.rxpermissions
+    api AsLibs.rxcache
+    api AsLibs.rxcacheJolyglot
+    //network
+    api AsLibs.okhttp
+    api AsLibs.okhttpLogging
+    api AsLibs.retrofit
+    api AsLibs.retrofitAdapter
+    api AsLibs.retrofitConverters
+
+}
